@@ -1,6 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import {useState} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
@@ -22,18 +23,25 @@ function App() {
 
     }
 
-
   }
 
   return (
-    <div className="App">
-      <div>Generating Excuse</div>
-      <button onClick={() => generateExcuse("family")}>Family</button>
-      <button onClick={() => generateExcuse("office")}>Office</button>
-      <button onClick={() => generateExcuse("party")}>Party</button>
-      {loading ? (<div>loading ...</div>)
+    <div className="container mt-5">
+      <h1 className="m-2">Generating Excuse</h1>
+      <nav className="navbar navbar-light bg-light">
+        <form className="container-fluid justify-content-start">
+          <button className="btn btn-outline-success me-2" type="button" onClick={() => generateExcuse("family")}>Family</button>
+          <button className="btn btn-outline-success me-2" type="button" onClick={() => generateExcuse("office")}>Office</button>
+          <button className="btn btn-outline-success me-2" type="button" onClick={() => generateExcuse("family")}>Party</button>
+        </form>
+      </nav>
+      {loading ? (
+        <div className="d-flex justify-content-center align-items-center h-60vh">
+          <div className="spinner-border" role="status">
+          </div>
+        </div>)
       : error ? (<div>{error}</div>)
-      : <div>{excuses}</div>}
+      : <p>{excuses}</p>}
     </div>
   );
 }
