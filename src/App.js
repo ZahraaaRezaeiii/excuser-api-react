@@ -1,23 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import {useState} from 'react'
 
 function App() {
+
+  const [excuses, setExcuses] = useState("")
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  const generateExcuse = async (selectedGategory) => {
+    try{
+      setLoading(true)
+      await axios.get(`https://excuser-three.vercel.app/v1/excuse/${selectedGategory}`).then((res) => {
+        setExcuses(res.data[0].excuse) 
+      })
+    }catch (error){
+      setError("Oops! Something went wrong.")
+
+    }finally{
+      setLoading(false)
+
+    }
+
+
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>Generating Excuse</div>
+      <button onClick={() => generateExcuse("family")}>Family</button>
+      <button onClick={() => generateExcuse("office")}>Office</button>
+      <button onClick={() => generateExcuse("party")}>Party</button>
+      {loading ? (<div>loading ...</div>)
+      : error ? (<div>{error}</div>)
+      : <div>{excuses}</div>}
     </div>
   );
 }
