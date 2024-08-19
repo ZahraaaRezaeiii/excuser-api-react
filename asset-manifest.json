@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/excuser-api-react/static/css/main.9a5c6096.css",
+    "main.js": "/excuser-api-react/static/js/main.83ad60b6.js",
+    "static/js/453.9995cb86.chunk.js": "/excuser-api-react/static/js/453.9995cb86.chunk.js",
+    "index.html": "/excuser-api-react/index.html",
+    "main.9a5c6096.css.map": "/excuser-api-react/static/css/main.9a5c6096.css.map",
+    "main.83ad60b6.js.map": "/excuser-api-react/static/js/main.83ad60b6.js.map",
+    "453.9995cb86.chunk.js.map": "/excuser-api-react/static/js/453.9995cb86.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a5c6096.css",
+    "static/js/main.83ad60b6.js"
+  ]
+}
